@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 3 - Fungsi Invers | Matematika XI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: { black: '#0a0a0a', dark: '#121212', gold: '#d4af37', goldLight: '#f3e5ab', gray: '#1e1e1e' }
+                    },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0a0a0a; color: #f3f3f3; }
+        .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #d4af37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass-card { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); }
+        .btn-luxury { background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a0a0a; font-weight: 600; transition: all 0.3s ease; }
+        .btn-luxury:hover { background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-outline { border: 1px solid #d4af37; color: #d4af37; transition: all 0.3s ease; }
+        .btn-outline:hover { background: #d4af37; color: #0a0a0a; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        th { color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        td { color: #d1d5db; }
+        .formula-box { background: rgba(212, 175, 55, 0.05); border-left: 3px solid #d4af37; padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #f3e5ab; margin: 16px 0; border-radius: 4px; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-luxury-black/90 backdrop-blur-md border-b border-luxury-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="font-serif text-xl font-bold gold-gradient-text">Matematika XI</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Beranda</a>
+                    <a href="index.html#daftar-isi" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Daftar Bab</a>
+                    <a href="index.html#tentang" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Penulis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Bab -->
+        <div class="text-center mb-12">
+            <span class="text-luxury-gold text-sm font-semibold tracking-[0.2em] uppercase">Pertemuan 3</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4 gold-gradient-text">BAB 3: Fungsi Invers</h1>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                Memahami konsep fungsi invers sebagai kebalikan dari fungsi asal. Menguasai syarat keberadaan invers, langkah menentukan f⁻¹(x), hubungan grafik fungsi dan inversnya, serta aplikasinya dalam pemecahan masalah "membalik" proses.
+            </p>
+        </div>
+
+        <!-- Navigasi Cepat -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Beranda</a>
+            <a href="uji-formatif-3.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">📝 Uji Formatif Bab 3</a>
+            <a href="4.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+        <!-- Konten A -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">A. Pengertian dan Hakikat Fungsi Invers</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">
+                Fungsi invers adalah fungsi kebalikan dari fungsi asalnya. Jika fungsi <em>f</em> memetakan <em>x</em> ke <em>y</em>, maka fungsi invers <em>f⁻¹</em> akan memetakan <em>y</em> kembali ke <em>x</em>. Dengan kata lain, fungsi invers "membalik" arah pemetaan dari fungsi asal.
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-4">Secara formal, jika f: A → B adalah suatu fungsi, maka inversnya f⁻¹: B → A didefinisikan sedemikian sehingga:</p>
+            
+            <div class="formula-box">
+                f(x) = y  ⇔  f⁻¹(y) = x<br>
+                <span class="text-sm text-gray-400 not-italic">Dibaca: "f invers dari y sama dengan x"</span>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border-l-4 border-luxury-gold mt-6">
+                <p class="text-gray-300 italic">"Fungsi invers adalah fungsi yang diperoleh dengan membalik hubungan antara domain dan range dari fungsi asalnya, sehingga output menjadi input dan sebaliknya." <br><span class="text-sm text-luxury-gold not-italic font-semibold">— Definisi Matematis</span></p>
+            </div>
+
+            <p class="text-gray-300 leading-relaxed mt-4">Analogi sederhana: Jika fungsi <em>f</em> adalah proses "memasak nasi dari beras", maka fungsi invers <em>f⁻¹</em> adalah proses "menemukan jumlah beras awal dari nasi yang sudah dimasak".</p>
+        </section>
+
+        <!-- Konten B -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">B. Syarat Fungsi Memiliki Invers</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Tidak semua fungsi memiliki invers. Suatu fungsi <strong>hanya memiliki invers</strong> jika memenuhi syarat berikut:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">1. Fungsi Harus Bijektif</h3>
+                    <p class="text-sm text-gray-400">Fungsi harus bersifat <strong>satu-satu (injektif)</strong> dan <strong>surjektif (pada)</strong>. Artinya, setiap anggota domain dipetakan ke anggota kodomain yang berbeda, dan semua anggota kodomain terpasangkan.</p>
+                </div>
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">2. Uji Garis Horizontal</h3>
+                    <p class="text-sm text-gray-400">Setiap garis horizontal harus memotong grafik fungsi paling banyak di <strong>satu titik</strong>. Jika ada garis horizontal yang memotong lebih dari satu titik, fungsi tidak memiliki invers.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-5 rounded-lg bg-red-900/10 border border-red-500/30">
+                <h3 class="text-red-400 font-bold mb-2">⚠️ Contoh Fungsi yang TIDAK Memiliki Invers:</h3>
+                <p class="text-sm text-gray-300 mb-2">f(x) = x² (untuk domain semua bilangan real)</p>
+                <p class="text-sm text-gray-400">Alasan: f(2) = 4 dan f(-2) = 4. Dua input berbeda menghasilkan output yang sama, sehingga fungsi tidak satu-satu. Garis horizontal y = 4 memotong grafik di dua titik.</p>
+            </div>
+        </section>
+
+        <!-- Konten C -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">C. Langkah Menentukan Fungsi Invers</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Berikut langkah-langkah sistematis untuk menentukan fungsi invers:</p>
+            
+            <div class="glass-card p-6 rounded-lg space-y-3 mb-6">
+                <p class="text-gray-300"><strong class="text-luxury-gold">Langkah 1:</strong> Misalkan y = f(x)</p>
+                <p class="text-gray-300"><strong class="text-luxury-gold">Langkah 2:</strong> Selesaikan persamaan untuk menyatakan x dalam bentuk y</p>
+                <p class="text-gray-300"><strong class="text-luxury-gold">Langkah 3:</strong> Ganti x dengan f⁻¹(x) dan y dengan x</p>
+                <p class="text-gray-300"><strong class="Langkah 4:</strong> Tuliskan fungsi invers yang diperoleh</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">📘 Contoh Soal:</h3>
+                <p class="text-gray-300 mb-3">Tentukan fungsi invers dari f(x) = 2x + 3!</p>
+                
+                <div class="mt-4 bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                    <p class="text-luxury-gold font-semibold mb-2">Penyelesaian:</p>
+                    <p class="text-gray-300 text-sm">Langkah 1: Misalkan y = 2x + 3</p>
+                    <p class="text-gray-300 text-sm">Langkah 2: Selesaikan untuk x</p>
+                    <p class="text-gray-300 text-sm ml-4">y = 2x + 3</p>
+                    <p class="text-gray-300 text-sm ml-4">y - 3 = 2x</p>
+                    <p class="text-gray-300 text-sm ml-4">x = (y - 3) / 2</p>
+                    <p class="text-gray-300 text-sm">Langkah 3: Ganti x dengan f⁻¹(x) dan y dengan x</p>
+                    <p class="text-gray-300 text-sm ml-4">f⁻¹(x) = (x - 3) / 2</p>
+                    <p class="text-luxury-gold font-semibold mt-2">Jadi, f⁻¹(x) = (x - 3) / 2 ✓</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten D -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">D. Contoh Soal Lanjutan</h2>
+            
+            <div class="space-y-6">
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">Contoh 1: Fungsi Pecahan</h3>
+                    <p class="text-gray-300 mb-2">Tentukan invers dari f(x) = (3x - 1) / (x + 2)!</p>
+                    <div class="bg-luxury-black/40 p-3 rounded border border-luxury-gold/20 mt-2">
+                        <p class="text-gray-300 text-sm">y = (3x - 1) / (x + 2)</p>
+                        <p class="text-gray-300 text-sm">y(x + 2) = 3x - 1</p>
+                        <p class="text-gray-300 text-sm">xy + 2y = 3x - 1</p>
+                        <p class="text-gray-300 text-sm">xy - 3x = -2y - 1</p>
+                        <p class="text-gray-300 text-sm">x(y - 3) = -2y - 1</p>
+                        <p class="text-gray-300 text-sm">x = (-2y - 1) / (y - 3)</p>
+                        <p class="text-luxury-gold font-semibold mt-2">f⁻¹(x) = (-2x - 1) / (x - 3) = (2x + 1) / (3 - x) ✓</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">Contoh 2: Fungsi Akar</h3>
+                    <p class="text-gray-300 mb-2">Tentukan invers dari f(x) = √(x + 4), dengan x ≥ -4!</p>
+                    <div class="bg-luxury-black/40 p-3 rounded border border-luxury-gold/20 mt-2">
+                        <p class="text-gray-300 text-sm">y = √(x + 4)</p>
+                        <p class="text-gray-300 text-sm">y² = x + 4</p>
+                        <p class="text-gray-300 text-sm">x = y² - 4</p>
+                        <p class="text-luxury-gold font-semibold mt-2">f⁻¹(x) = x² - 4, dengan x ≥ 0 ✓</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten E -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">E. Sifat-Sifat Fungsi Invers</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Fungsi invers memiliki beberapa sifat penting:</p>
+            
+            <div class="space-y-4">
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">1. Komposisi dengan Fungsi Asal</h3>
+                    <p class="text-sm text-gray-400 mb-2">Fungsi invers dikomposisikan dengan fungsi asalnya menghasilkan fungsi identitas.</p>
+                    <div class="formula-box text-sm">(f⁻¹ ∘ f)(x) = x  dan  (f ∘ f⁻¹)(x) = x</div>
+                </div>
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">2. Invers dari Invers</h3>
+                    <p class="text-sm text-gray-400 mb-2">Invers dari fungsi invers adalah fungsi asalnya sendiri.</p>
+                    <div class="formula-box text-sm">(f⁻¹)⁻¹ = f</div>
+                </div>
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">3. Domain dan Range Saling Bertukar</h3>
+                    <p class="text-sm text-gray-400 mb-2">Domain fungsi invers adalah range fungsi asal, dan sebaliknya.</p>
+                    <div class="formula-box text-sm">D(f⁻¹) = R(f)  dan  R(f⁻¹) = D(f)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten F -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">F. Grafik Fungsi dan Inversnya</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Grafik fungsi dan inversnya memiliki hubungan geometris yang khas:</p>
+            
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Sifat Simetri terhadap Garis y = x</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Grafik fungsi invers merupakan <strong>pencerminan</strong> dari grafik fungsi asal terhadap garis <strong>y = x</strong> (garis diagonal dengan gradien 1).
+                </p>
+                <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                    <li>Jika titik (a, b) terletak pada grafik f, maka titik (b, a) terletak pada grafik f⁻¹.</li>
+                    <li>Garis y = x berfungsi sebagai "cermin" yang memantulkan grafik fungsi asal ke grafik fungsi invers.</li>
+                    <li>Sifat ini dapat digunakan untuk menggambar grafik fungsi invers tanpa menghitung rumusnya secara eksplisit.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Konten G -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">G. Studi Kasus: Penerapan dalam Kehidupan Nyata</h2>
+            
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30 mb-6">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus 1: Menghitung Harga Sebelum Diskon</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Sebuah toko di koperasi madrasah memberikan diskon 20% untuk semua barang. Jika harga setelah diskon adalah fungsi dari harga awal: <strong>f(x) = 0,8x</strong> (x = harga awal), maka fungsi inversnya digunakan untuk menghitung harga awal dari harga yang tertera.
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    <strong>Fungsi Invers:</strong> f⁻¹(x) = x / 0,8 = 1,25x<br>
+                    <strong>Penerapan:</strong> Jika harga setelah diskon Rp80.000, maka harga awal = 1,25 × 80.000 = <strong>Rp100.000</strong>.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus 2: Konversi Suhu Balik</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Rumus konversi Celcius ke Fahrenheit: <strong>f(C) = 9/5 × C + 32</strong>. Fungsi inversnya digunakan untuk mengonversi Fahrenheit kembali ke Celcius.
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    <strong>Fungsi Invers:</strong> f⁻¹(F) = 5/9 × (F - 32)<br>
+                    <strong>Penerapan:</strong> Jika suhu 95°F, maka dalam Celcius = 5/9 × (95 - 32) = 5/9 × 63 = <strong>35°C</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- Konten H -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">H. Tantangan dan Miskonsepsi Umum</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Dalam mempelajari fungsi invers, murid sering mengalami:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Kebingungan Notasi:</strong> Mengira f⁻¹(x) sama dengan 1/f(x), padahal f⁻¹(x) adalah fungsi invers, bukan kebalikan aljabar.</li>
+                <li><strong>Mengabaikan Syarat Bijektif:</strong> Mencoba mencari invers fungsi yang tidak satu-satu (misal: f(x) = x² tanpa pembatasan domain).</li>
+                <li><strong>Kesalahan Aljabar:</strong> Salah dalam menyelesaikan persamaan untuk menyatakan x dalam y, terutama pada fungsi pecahan.</li>
+                <li><strong>Lupa Menukar Variabel:</strong> Setelah mendapatkan x = ... dalam y, lupa mengganti x dengan f⁻¹(x) dan y dengan x.</li>
+                <li><strong>Mengabaikan Domain Invers:</strong> Tidak menyadari bahwa domain fungsi invers adalah range fungsi asal.</li>
+            </ul>
+        </section>
+
+        <!-- Konten I -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">I. Relevansi dalam Konteks MAS Diniyah Limo Jurai</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Konsep fungsi invers memiliki makna filosofis dalam pendidikan Islam:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Prinsip Tawbah (Kembali):</strong> Seperti fungsi invers yang "membalik" proses, konsep taubat dalam Islam adalah proses kembali kepada Allah setelah melakukan kesalahan.</li>
+                <li><strong>Hisab dan Perhitungan:</strong> Digunakan dalam perhitungan zakat balik (menghitung harta sebelum dipotong zakat dari jumlah yang diterima), konversi satuan dalam fikih muamalah, dan penentuan waktu shalat dari koordinat geografis.</li>
+                <li><strong>Berpikir Kritis:</strong> Melatih murid untuk melihat masalah dari dua sudut pandang (forward dan backward thinking), yang sejalan dengan prinsip tafakkur (berpikir mendalam) dalam Islam.</li>
+            </ul>
+        </section>
+
+        <!-- Tabel Perbandingan -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">J. Perbedaan: Fungsi vs Fungsi Invers</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-luxury-gold/40">
+                            <th class="py-3">Aspek</th>
+                            <th class="py-3">Fungsi (f)</th>
+                            <th class="py-3">Fungsi Invers (f⁻¹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Arah Pemetaan</td>
+                            <td class="py-3">Dari domain ke range (x → y)</td>
+                            <td class="py-3 text-luxury-gold">Dari range ke domain (y → x)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Domain</td>
+                            <td class="py-3">Himpunan semua input yang valid</td>
+                            <td class="py-3 text-luxury-gold">Range dari fungsi asal</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Range</td>
+                            <td class="py-3">Himpunan semua output yang dihasilkan</td>
+                            <td class="py-3 text-luxury-gold">Domain dari fungsi asal</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Grafik</td>
+                            <td class="py-3">Grafik asli</td>
+                            <td class="py-3 text-luxury-gold">Pencerminan grafik asal terhadap y = x</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Syarat Keberadaan</td>
+                            <td class="py-3">Selalu terdefinisi</td>
+                            <td class="py-3 text-luxury-gold">Hanya ada jika fungsi asal bijektif</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Komposisi</td>
+                            <td class="py-3">(f ∘ f⁻¹)(x) = x</td>
+                            <td class="py-3 text-luxury-gold">(f⁻¹ ∘ f)(x) = x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Poin Penting -->
+        <section class="mb-16 glass-card p-8 rounded-xl border-l-4 border-luxury-gold">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4">💡 Poin Penting untuk Ujian</h2>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami definisi fungsi invers: f(x) = y ⇔ f⁻¹(y) = x.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Kuasai syarat fungsi memiliki invers: harus bijektif (satu-satu dan pada).</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Hafalkan 4 langkah menentukan fungsi invers secara sistematis.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Latihan mencari invers dari berbagai jenis fungsi (linear, pecahan, akar).</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami sifat-sifat fungsi invers: komposisi dengan fungsi asal, invers dari invers, pertukaran domain-range.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Ingat hubungan grafik: simetri terhadap garis y = x.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Bedakan notasi f⁻¹(x) (fungsi invers) dengan 1/f(x) (kebalikan aljabar).</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Mampu menyelesaikan soal cerita yang memerlukan "pembalikan" proses.</li>
+            </ul>
+        </section>
+
+        <!-- Navigasi Bawah -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Kembali ke Beranda</a>
+            <a href="uji-formatif-3.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">✍️ Uji Formatif Bab 3</a>
+            <a href="4.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-luxury-dark border-t border-luxury-gold/20 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-serif text-xl font-bold gold-gradient-text mb-3">Matematika XI</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Buku daras untuk murid dan pendidik. Teori, praktik, dan aplikasi matematika dalam konteks pendidikan Islam di MAS Diniyah Limo Jurai.</p>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-luxury-gold transition-colors">Beranda</a></li>
+                        <li><a href="index.html#daftar-isi" class="hover:text-luxury-gold transition-colors">Daftar Bab</a></li>
+                        <li><a href="index.html#tentang" class="hover:text-luxury-gold transition-colors">Penulis</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Kontak & Bantuan</h4>
+                    <p class="text-gray-400 text-sm mb-2">Murid dapat menyertakan <strong class="text-gray-200">NIS</strong> saat mengajukan pertanyaan terkait materi.</p>
+                    <a href="mailto:elvialfatunnisa@gmail.com" class="text-luxury-gold hover:text-luxury-goldLight text-sm transition-colors block mb-1">elvialfatunnisa@gmail.com</a>
+                    <span class="text-gray-500 text-sm block">MAS Diniyah Limo Jurai</span>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs">&copy; 2026 Elvi Syuhk Rina Fitri. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

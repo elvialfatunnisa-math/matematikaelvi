@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Tengah Semester (UTS) | Matematika XI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: { black: '#0a0a0a', dark: '#121212', gold: '#d4af37', goldLight: '#f3e5ab', gray: '#1e1e1e' }
+                    },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0a0a0a; color: #f3f3f3; }
+        .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #d4af37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass-card { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); }
+        .btn-luxury { background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a0a0a; font-weight: 600; transition: all 0.3s ease; }
+        .btn-luxury:hover { background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-outline { border: 1px solid #d4af37; color: #d4af37; transition: all 0.3s ease; }
+        .btn-outline:hover { background: #d4af37; color: #0a0a0a; }
+        .btn-secondary { background: rgba(212, 175, 55, 0.1); border: 1px solid #d4af37; color: #d4af37; transition: all 0.3s ease; }
+        .btn-secondary:hover { background: #d4af37; color: #0a0a0a; }
+        input, select, textarea { background-color: rgba(10, 10, 10, 0.8); border: 1px solid rgba(212, 175, 55, 0.3); color: #f3f3f3; transition: all 0.3s ease; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        .narrative-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(30, 30, 30, 0.6) 100%); border-left: 3px solid #d4af37; padding: 16px 20px; border-radius: 4px; margin-bottom: 16px; font-style: italic; color: #e5e7eb; }
+        .bs-toggle { display: inline-flex; gap: 8px; }
+        .bs-toggle label { padding: 6px 16px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 9999px; cursor: pointer; transition: all 0.3s ease; font-size: 0.875rem; }
+        .bs-toggle input[type="radio"] { display: none; }
+        .bs-toggle input[type="radio"]:checked + span { background: #d4af37; color: #0a0a0a; font-weight: 600; }
+        .complex-option { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; margin-bottom: 8px; cursor: pointer; transition: all 0.3s ease; }
+        .complex-option:hover { border-color: #d4af37; background: rgba(212, 175, 55, 0.05); }
+        .complex-option input[type="checkbox"] { accent-color: #d4af37; }
+        .section-badge { display: inline-block; padding: 4px 14px; background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; color: #d4af37; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+        html { scroll-behavior: smooth; }
+        .timer-box { position: sticky; top: 80px; z-index: 40; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-luxury-black/90 backdrop-blur-md border-b border-luxury-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="font-serif text-xl font-bold gold-gradient-text">Matematika XI</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Beranda</a>
+                    <a href="index.html#daftar-isi" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Daftar Bab</a>
+                    <a href="index.html#tentang" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Penulis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header UTS -->
+        <div class="text-center mb-10">
+            <span class="text-luxury-gold text-sm font-semibold tracking-[0.2em] uppercase">Evaluasi Komprehensif</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4 gold-gradient-text">🏆 UJIAN TENGAH SEMESTER</h1>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                Matematika XI — Materi Bab 1 s.d. Bab 4
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 mt-6 text-sm">
+                <span class="px-4 py-2 rounded-full bg-luxury-gold/10 text-luxury-gold border border-luxury-gold/30">📚 Fungsi & Komposisi</span>
+                <span class="px-4 py-2 rounded-full bg-luxury-gold/10 text-luxury-gold border border-luxury-gold/30">🔄 Fungsi Invers</span>
+                <span class="px-4 py-2 rounded-full bg-luxury-gold/10 text-luxury-gold border border-luxury-gold/30">📊 Program Linear</span>
+            </div>
+            <div class="flex justify-center gap-4 mt-6 text-sm">
+                <span class="px-3 py-1 rounded-full bg-luxury-gold/10 text-luxury-gold border border-luxury-gold/30">⏱️ Waktu: 120 menit</span>
+                <span class="px-3 py-1 rounded-full bg-luxury-gold/10 text-luxury-gold border border-luxury-gold/30">🏆 Total Skor: 500 poin</span>
+                <span class="px-4 py-1 rounded-full bg-red-900/30 text-red-400 border border-red-500/30">🎯 Level: HOTS</span>
+            </div>
+        </div>
+
+        <!-- Timer Sticky -->
+        <div class="timer-box">
+            <div>
+                <p class="text-xs text-gray-400 uppercase tracking-wider">Waktu Tersisa</p>
+                <p class="text-2xl font-bold text-luxury-gold font-mono" id="timer">120:00</p>
+            </div>
+            <div class="text-right">
+                <p class="text-xs text-gray-400 uppercase tracking-wider">Progress</p>
+                <p class="text-sm text-gray-300"><span id="progress">0</span> / 35 soal terjawab</p>
+            </div>
+        </div>
+
+        <!-- Form Data Murid -->
+        <div class="glass-card p-6 rounded-xl mb-10 border-l-4 border-luxury-gold">
+            <h2 class="font-serif text-xl text-luxury-gold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                Data Murid
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Nama Lengkap <span class="text-red-500">*</span></label>
+                    <input type="text" id="nama" class="w-full px-4 py-2 rounded-lg" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">NIS <span class="text-red-500">*</span></label>
+                    <input type="text" id="nis" class="w-full px-4 py-2 rounded-lg" placeholder="Masukkan Nomor Induk Murid" required>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">📅 Tanggal Ujian</label>
+                    <input type="date" id="tanggal" class="w-full px-4 py-2 rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Kelas</label>
+                    <select id="kelas" class="w-full px-4 py-2 rounded-lg">
+                        <option value="">Pilih Kelas</option>
+                        <option value="XI-1">XI-1</option>
+                        <option value="XI-2">XI-2</option>
+                        <option value="XI-3">XI-3</option>
+                        <option value="XI-4">XI-4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- BAGIAN A: PILIHAN GANDA HOTS (20 SOAL)         -->
+        <!-- ============================================= -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <span class="section-badge">Bagian A</span>
+                <h2 class="font-serif text-3xl text-luxury-gold mb-2">Pilihan Ganda HOTS</h2>
+                <p class="text-gray-400 text-sm">20 soal × 10 poin = <strong class="text-luxury-gold">200 poin</strong></p>
+                <p class="text-red-400 text-xs mt-2">⚠️ Setiap soal memiliki narasi kasus/teori. Pilih SATU jawaban paling tepat dari 5 opsi (a–e).</p>
+            </div>
+
+            <div class="space-y-6" id="pg-container">
+
+                <!-- SOAL 1 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <p class="text-xs text-luxury-gold font-semibold mb-2">SOAL 1 — Bab 1: Fungsi</p>
+                    <div class="narrative-box">
+                        <p>Koperasi MAS Diniyah Limo Jurai menjual dua jenis kitab: <strong>Kitab Fiqih</strong> dan <strong>Kitab Tauhid</strong>. Harga Kitab Fiqih Rp45.000 dan Kitab Tauhid Rp35.000. Seorang murid membeli x Kitab Fiqih dan y Kitab Tauhid dengan total pembayaran tidak lebih dari Rp350.000. Fungsi total pembayaran T(x, y) merupakan fungsi dua variabel yang memetakan banyak buku ke total biaya.</p>
+                    </div>
+                    <p class="font-semibold text-gray-200 mb-3">Berdasarkan narasi di atas, pernyataan yang PALING TEPAT mengenai fungsi T(x, y) adalah...</p>
+                    <div class="space-y-2 text-gray-300">
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q1" value="a" class="accent-luxury-gold mt-1"> a) T(x, y) = 45.000x + 35.000y dengan domain x, y ∈ bilangan bulat negatif</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q1" value="b" class="accent-luxury-gold mt-1"> b) T(x, y) = 45.000x + 35.000y dengan domain x ≥ 0, y ≥ 0, dan T(x, y) ≤ 350.000</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q1" value="c" class="accent-luxury-gold mt-1"> c) T(x, y) = 45.000x × 35.000y dengan range semua bilangan real</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q1" value="d" class="accent-luxury-gold mt-1"> d) T(x, y) = (45.000 + 35.000)(x + y) dengan kodomain hanya bilangan ganjil</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q1" value="e" class="accent-luxury-gold mt-1"> e) T(x, y) = 45.000x − 35.000y dengan syarat x > y</label>
+                    </div>
+                </div>
+
+                <!-- SOAL 2 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <p class="text-xs text-luxury-gold font-semibold mb-2">SOAL 2 — Bab 2: Fungsi Komposisi</p>
+                    <div class="narrative-box">
+                        <p>Sebuah UMKM binaan madrasah memproduksi selai nanas melalui <strong>tiga tahap</strong>. Tahap I: pengupasan dan pencucian (fungsi <em>h</em>), menghasilkan bahan setengah jadi. Tahap II: perebusan dengan gula (fungsi <em>g</em>), menghasilkan selai mentah. Tahap III: pengemasan (fungsi <em>f</em>), menghasilkan produk jadi. Biaya masing-masing tahap: h(x) = 2.000x + 5.000; g(x) = 3x + 8.000; f(x) = 1.5x + 10.000, dengan x adalah kuantitas bahan (kg).</p>
+                    </div>
+                    <p class="font-semibold text-gray-200 mb-3">Model fungsi komposisi yang tepat untuk menghitung biaya total produksi selai jadi dari kuantitas bahan awal x adalah...</p>
+                    <div class="space-y-2 text-gray-300">
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q2" value="a" class="accent-luxury-gold mt-1"> a) (f ∘ g ∘ h)(x) = f(g(h(x)))</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q2" value="b" class="accent-luxury-gold mt-1"> b) (h ∘ g ∘ f)(x) = h(g(f(x)))</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q2" value="c" class="accent-luxury-gold mt-1"> c) (f + g + h)(x) = f(x) + g(x) + h(x)</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q2" value="d" class="accent-luxury-gold mt-1"> d) (f × g × h)(x) = f(x) × g(x) × h(x)</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q2" value="e" class="accent-luxury-gold mt-1"> e) (g ∘ f ∘ h)(x) = g(f(h(x)))</label>
+                    </div>
+                </div>
+
+                <!-- SOAL 3 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <p class="text-xs text-luxury-gold font-semibold mb-2">SOAL 3 — Bab 3: Fungsi Invers</p>
+                    <div class="narrative-box">
+                        <p>Toko buku madrasah menerapkan sistem diskon bertingkat: <strong>diskon 20%</strong> untuk pembelian di atas Rp100.000, lalu <strong>diskon tambahan 10%</strong> dari harga setelah diskon pertama untuk member. Seorang guru ingin mengetahui harga awal barang yang dibayar Rp180.000 setelah kedua diskon.</p>
+                    </div>
+                    <p class="font-semibold text-gray-200 mb-3">Fungsi yang memetakan harga awal (x) ke harga akhir setelah kedua diskon adalah f(x) = 0,72x. Fungsi invers yang digunakan untuk menghitung harga awal dari harga akhir y adalah...</p>
+                    <div class="space-y-2 text-gray-300">
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q3" value="a" class="accent-luxury-gold mt-1"> a) f⁻¹(y) = y / 0,72</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q3" value="b" class="accent-luxury-gold mt-1"> b) f⁻¹(y) = 0,72y</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q3" value="c" class="accent-luxury-gold mt-1"> c) f⁻¹(y) = 1 / (0,72y)</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q3" value="d" class="accent-luxury-gold mt-1"> d) f⁻¹(y) = y − 0,72</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q3" value="e" class="accent-luxury-gold mt-1"> e) f⁻¹(y) = 0,72 / y</label>
+                    </div>
+                </div>
+
+                <!-- SOAL 4 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <p class="text-xs text-luxury-gold font-semibold mb-2">SOAL 4 — Bab 4: Program Linear</p>
+                    <div class="narrative-box">
+                        <p>Seorang penjahit di koperasi madrasah menerima pesanan membuat <strong>jubah</strong> dan <strong>baju koko</strong>. Setiap jubah membutuhkan 2 meter kain sutra dan 3 jam kerja. Setiap baju koko membutuhkan 1 meter kain sutra dan 2 jam kerja. Tersedia 20 meter kain sutra dan 30 jam kerja. Keuntungan per jubah Rp150.000 dan per baju koko Rp100.000.</p>
+                    </div>
+                    <p class="font-semibold text-gray-200 mb-3">Model matematika yang tepat untuk memaksimalkan keuntungan adalah...</p>
+                    <div class="space-y-2 text-gray-300">
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q4" value="a" class="accent-luxury-gold mt-1"> a) f(x, y) = 150.000x + 100.000y; kendala: 2x + y ≤ 20; 3x + 2y ≤ 30; x, y ≥ 0</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q4" value="b" class="accent-luxury-gold mt-1"> b) f(x, y) = 150.000x + 100.000y; kendala: x + 2y ≤ 20; 2x + 3y ≤ 30; x, y ≥ 0</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q4" value="c" class="accent-luxury-gold mt-1"> c) f(x, y) = 150.000x + 100.000y; kendala: 2x + y ≥ 20; 3x + 2y ≥ 30; x, y ≥ 0</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q4" value="d" class="accent-luxury-gold mt-1"> d) f(x, y) = 2x + 3y; kendala: 150.000x + 100.000y ≤ 20; x, y ≥ 0</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q4" value="e" class="accent-luxury-gold mt-1"> e) f(x, y) = 150.000x − 100.000y; kendala: 2x + y ≤ 20; 3x + 2y ≤ 30; x, y ≥ 0</label>
+                    </div>
+                </div>
+
+                <!-- SOAL 5 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <p class="text-xs text-luxury-gold font-semibold mb-2">SOAL 5 — Bab 2: Fungsi Komposisi (Analisis)</p>
+                    <div class="narrative-box">
+                        <p>Diketahui f(x) = 3x + 2 dan g(x) = x² − 1. Seorang murid menyimpulkan bahwa (f ∘ g)(2) = 17. Murid lain menyimpulkan bahwa (g ∘ f)(2) = 63.</p>
+                    </div>
+                    <p class="font-semibold text-gray-200 mb-3">Evaluasi yang PALING TEPAT terhadap kedua kesimpulan tersebut adalah...</p>
+                    <div class="space-y-2 text-gray-300">
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q5" value="a" class="accent-luxury-gold mt-1"> a) Kedua kesimpulan benar</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q5" value="b" class="accent-luxury-gold mt-1"> b) Kesimpulan pertama benar, kedua salah</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q5" value="c" class="accent-luxury-gold mt-1"> c) Kesimpulan pertama salah, kedua benar</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q5" value="d" class="accent-luxury-gold mt-1"> d) Kedua kesimpulan salah; seharusnya (f ∘ g)(2) = 11 dan (g ∘ f)(2) = 63</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q5" value="e" class="accent-luxury-gold mt-1"> e) Kedua kesimpulan salah; seharusnya (f ∘ g)(2) = 11 dan (g ∘ f)(2) = 48</label>
+                    </div>
+                </div>
+
+                <!-- SOAL 6 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <p class="text-xs text-luxury-gold font-semibold mb-2">SOAL 6 — Bab 3: Fungsi Invers (Grafik)</p>
+                    <div class="narrative-box">
+                        <p>Grafik fungsi f(x) = (2x + 1)/(x − 3) memiliki asimtot vertikal x = 3 dan asimtot horizontal y = 2. Grafik fungsi inversnya f⁻¹(x) juga memiliki dua asimtot.</p>
+                    </div>
+                    <p class="font-semibold text-gray-200 mb-3">Asimtot dari grafik fungsi invers f⁻¹(x) adalah...</p>
+                    <div class="space-y-2 text-gray-300">
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q6" value="a" class="accent-luxury-gold mt-1"> a) x = 2 dan y = 3</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q6" value="b" class="accent-luxury-gold mt-1"> b) x = −3 dan y = −2</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q6" value="c" class="accent-luxury-gold mt-1"> c) x = 3 dan y = 2 (sama dengan fungsi asal)</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q6" value="d" class="accent-luxury-gold mt-1"> d) x = 2 dan y = −3</label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:text-luxury-gold"><input type="radio" name="q6" value="e" class="accent-luxury-gold mt-1"> e) x = −2 dan y = 3</label>
+                    </div>
+                </div>
+
+                <!-- SOAL 7 -->
+                <div class="glass-card p-6 rounded-lg">
+                    <

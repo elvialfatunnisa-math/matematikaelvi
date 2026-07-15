@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 1 - Fungsi | Matematika XI</title>
+    
+    <!-- Google Fonts: Playfair Display (Luxury) & Montserrat (Modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config for Luxury Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: { black: '#0a0a0a', dark: '#121212', gold: '#d4af37', goldLight: '#f3e5ab', gray: '#1e1e1e' }
+                    },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0a0a0a; color: #f3f3f3; }
+        .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #d4af37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass-card { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); }
+        .btn-luxury { background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a0a0a; font-weight: 600; transition: all 0.3s ease; }
+        .btn-luxury:hover { background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-outline { border: 1px solid #d4af37; color: #d4af37; transition: all 0.3s ease; }
+        .btn-outline:hover { background: #d4af37; color: #0a0a0a; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        th { color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        td { color: #d1d5db; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-luxury-black/90 backdrop-blur-md border-b border-luxury-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="font-serif text-xl font-bold gold-gradient-text">Matematika XI</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Beranda</a>
+                    <a href="index.html#daftar-isi" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Daftar Bab</a>
+                    <a href="index.html#tentang" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Penulis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Bab -->
+        <div class="text-center mb-12">
+            <span class="text-luxury-gold text-sm font-semibold tracking-[0.2em] uppercase">Pertemuan 1</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4 gold-gradient-text">BAB 1: Fungsi</h1>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                Konsep dasar fungsi, pengertian, domain, kodomain, range, dan jenis-jenis fungsi. Memahami esensi fungsi sebagai fondasi matematika di kelas XI dan aplikasinya dalam pemecahan masalah nyata.
+            </p>
+        </div>
+
+        <!-- Navigasi Cepat -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">
+                🏠 Beranda
+            </a>
+            <a href="uji-formatif-1.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">
+                📝 Uji Formatif Bab 1
+            </a>
+            <a href="2.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">
+                Bab Selanjutnya →
+            </a>
+        </div>
+
+        <!-- Konten A -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">A. Pengertian dan Hakikat Fungsi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">
+                Fungsi merupakan komponen sentral dalam matematika yang berfungsi sebagai aturan pemetaan dari satu himpunan ke himpunan lainnya. Secara konsep, fungsi adalah hubungan khusus yang memasangkan setiap anggota himpunan daerah asal (domain) dengan <strong>tepat satu</strong> anggota himpunan daerah kawan (kodomain).
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-4">Dalam perspektif yang lebih komprehensif, fungsi tidak hanya sekadar rumus aljabar, melainkan sebuah model matematis yang mencakup:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4 mb-6">
+                <li><strong class="text-gray-200">Input (Domain):</strong> Nilai awal atau variabel bebas yang dimasukkan.</li>
+                <li><strong class="text-gray-200">Proses (Aturan Fungsi):</strong> Operasi atau transformasi yang diterapkan pada input.</li>
+                <li><strong class="text-gray-200">Output (Range):</strong> Hasil akhir atau variabel terikat yang dihasilkan.</li>
+            </ul>
+            <div class="glass-card p-6 rounded-lg border-l-4 border-luxury-gold">
+                <p class="text-gray-300 italic">"Fungsi adalah relasi khusus yang memasangkan setiap anggota domain dengan tepat satu anggota kodomain." <br><span class="text-sm text-luxury-gold not-italic font-semibold">— Kurikulum Matematika SMA/MA</span></p>
+            </div>
+        </section>
+
+        <!-- Konten B -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">B. Unsur-Unsur dan Penyajian Fungsi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Untuk memahami fungsi secara utuh, murid harus menguasai tiga unsur utama dan cara penyajiannya:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">1. Domain</h3>
+                    <p class="text-sm text-gray-400">Daerah asal; himpunan semua nilai input yang diperbolehkan atau valid untuk diproses.</p>
+                </div>
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">2. Kodomain</h3>
+                    <p class="text-sm text-gray-400">Daerah kawan; himpunan semua nilai output yang mungkin, belum tentu semuanya terpasangkan.</p>
+                </div>
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">3. Range</h3>
+                    <p class="text-sm text-gray-400">Daerah hasil; himpunan bagian dari kodomain yang benar-benar terpasangkan dengan anggota domain.</p>
+                </div>
+            </div>
+            <p class="text-gray-300 leading-relaxed">Fungsi dapat disajikan dalam empat bentuk: <strong>Diagram Panah</strong>, <strong>Himpunan Pasangan Berurutan</strong>, <strong>Diagram Kartesius</strong>, dan <strong>Rumus Fungsi</strong> (misal: f(x) = 2x + 3).</p>
+        </section>
+
+        <!-- Konten C -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">C. Jenis-Jenis Fungsi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Pemahaman jenis fungsi membantu murid mengidentifikasi pola dan perilaku grafik:</p>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">•</span> <span><strong>Fungsi Konstan:</strong> f(x) = c. Grafiknya berupa garis horizontal sejajar sumbu X.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">•</span> <span><strong>Fungsi Identitas:</strong> f(x) = x. Setiap nilai input sama dengan nilai outputnya.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">•</span> <span><strong>Fungsi Linear:</strong> f(x) = mx + c. Grafiknya berupa garis lurus dengan gradien m.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">•</span> <span><strong>Fungsi Kuadrat:</strong> f(x) = ax² + bx + c. Grafiknya berupa parabola.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">•</span> <span><strong>Fungsi Modulus:</strong> f(x) = |x|. Selalu menghasilkan nilai non-negatif.</span></li>
+            </ul>
+        </section>
+
+        <!-- Konten D -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">D. Operasi Aljabar pada Fungsi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Dua fungsi atau lebih dapat dioperasikan layaknya bilangan, dengan syarat domainnya beririsan:</p>
+            <div class="glass-card p-6 rounded-lg space-y-3">
+                <p class="text-gray-300"><strong class="text-luxury-gold">1. Penjumlahan:</strong> (f + g)(x) = f(x) + g(x)</p>
+                <p class="text-gray-300"><strong class="text-luxury-gold">2. Pengurangan:</strong> (f - g)(x) = f(x) - g(x)</p>
+                <p class="text-gray-300"><strong class="text-luxury-gold">3. Perkalian:</strong> (f × g)(x) = f(x) × g(x)</p>
+                <p class="text-gray-300"><strong class="text-luxury-gold">4. Pembagian:</strong> (f / g)(x) = f(x) / g(x), dengan syarat g(x) ≠ 0.</p>
+            </div>
+        </section>
+
+        <!-- Konten E -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">E. Fungsi dalam Pemecahan Masalah (Studi Kasus)</h2>
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus: Perhitungan Infaq di MAS Diniyah Limo Jurai</h3>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    Setiap murid di MAS Diniyah Limo Jurai diwajibkan membayar infaq bulanan sebesar Rp5.000,00. Total infaq yang terkumpul (T) merupakan fungsi dari jumlah murid yang membayar (n). 
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    <strong>Model Fungsi:</strong> T(n) = 5000n<br>
+                    <strong>Penerapan:</strong> Jika ada 120 murid yang membayar, maka T(120) = 5000 × 120 = Rp600.000,00. Fungsi ini membantu bendahara madrasah memprediksi pemasukan berdasarkan data kehadiran murid.
+                </p>
+            </div>
+        </section>
+
+        <!-- Konten F -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">F. Tantangan dan Miskonsepsi dalam Memahami Fungsi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Di era pembelajaran modern, murid menghadapi beberapa tantangan:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Miskonsepsi Relasi vs Fungsi:</strong> Menganggap semua relasi adalah fungsi, padahal fungsi mensyaratkan pemetaan "tepat satu".</li>
+                <li><strong>Abstraksi Grafik:</strong> Kesulitan memvisualisasikan perubahan aljabar ke dalam bentuk grafik Kartesius.</li>
+                <li><strong>Penentuan Domain:</strong> Kesalahan dalam menentukan syarat fungsi (misalnya, penyebut tidak boleh nol, atau akar tidak boleh negatif).</li>
+            </ul>
+        </section>
+
+        <!-- Konten G -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">G. Relevansi Fungsi dalam Konteks MAS Diniyah Limo Jurai</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Pembelajaran fungsi di madrasah memiliki kekhasan integrasi nilai:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Nilai Ketepatan (Istiqamah):</strong> Konsep "tepat satu" pada fungsi mencerminkan prinsip kepastian dan amanah dalam Islam.</li>
+                <li><strong>Aplikasi Fikih:</strong> Pola fungsi digunakan dalam menghitung zakat fitrah/maal, pembagian waris, dan penentuan jadwal kegiatan madrasah yang berulang.</li>
+                <li><strong>Berpikir Sistematis:</strong> Melatih murid untuk menyelesaikan masalah dunia nyata dengan langkah-langkah logis dan terstruktur.</li>
+            </ul>
+        </section>
+
+        <!-- Perbedaan Relasi dan Fungsi (Tabel) -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">H. Perbedaan Mendasar: Relasi vs Fungsi</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-luxury-gold/40">
+                            <th class="py-3">Aspek</th>
+                            <th class="py-3">Relasi</th>
+                            <th class="py-3">Fungsi (Pemetaan)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Fokus</td>
+                            <td class="py-3">Hubungan bebas antar dua himpunan</td>
+                            <td class="py-3 text-luxury-gold">Hubungan khusus dengan aturan ketat</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Sifat Pemetaan</td>
+                            <td class="py-3">Satu anggota domain boleh dipasangkan ke nol, satu, atau lebih anggota kodomain</td>
+                            <td class="py-3 text-luxury-gold">Setiap anggota domain <strong>harus</strong> dipasangkan dengan <strong>tepat satu</strong> anggota kodomain</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Cakupan</td>
+                            <td class="py-3">Lebih umum dan luas</td>
+                            <td class="py-3 text-luxury-gold">Lebih spesifik (merupakan bagian khusus dari relasi)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Poin Penting -->
+        <section class="mb-16 glass-card p-8 rounded-xl border-l-4 border-luxury-gold">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4">💡 Poin Penting untuk Ujian</h2>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami perbedaan mendasar antara relasi dan fungsi.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Kuasai cara menentukan domain, kodomain, dan range dari berbagai bentuk penyajian.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Hafalkan ciri-ciri grafik dan rumus dari berbagai jenis fungsi (konstan, linear, kuadrat, modulus).</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami syarat dan cara melakukan operasi aljabar pada fungsi.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Siapkan diri untuk menerjemahkan masalah cerita (studi kasus) ke dalam model matematika fungsi.</li>
+            </ul>
+        </section>
+
+        <!-- Navigasi Bawah -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Kembali ke Beranda</a>
+            <a href="uji-formatif-1.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">✍️ Uji Formatif Bab 1</a>
+            <a href="2.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-luxury-dark border-t border-luxury-gold/20 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-serif text-xl font-bold gold-gradient-text mb-3">Matematika XI</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Buku daras untuk murid dan pendidik. Teori, praktik, dan aplikasi matematika dalam konteks pendidikan Islam di MAS Diniyah Limo Jurai.</p>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-luxury-gold transition-colors">Beranda</a></li>
+                        <li><a href="index.html#daftar-isi" class="hover:text-luxury-gold transition-colors">Daftar Bab</a></li>
+                        <li><a href="index.html#tentang" class="hover:text-luxury-gold transition-colors">Penulis</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Kontak & Bantuan</h4>
+                    <p class="text-gray-400 text-sm mb-2">Murid dapat menyertakan <strong class="text-gray-200">NIS</strong> saat mengajukan pertanyaan terkait materi.</p>
+                    <a href="mailto:elvialfatunnisa@gmail.com" class="text-luxury-gold hover:text-luxury-goldLight text-sm transition-colors block mb-1">elvialfatunnisa@gmail.com</a>
+                    <span class="text-gray-500 text-sm block">MAS Diniyah Limo Jurai</span>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs">&copy; 2026 Elvi Syuhk Rina Fitri. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

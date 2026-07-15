@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 4 - Program Linear | Matematika XI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: { black: '#0a0a0a', dark: '#121212', gold: '#d4af37', goldLight: '#f3e5ab', gray: '#1e1e1e' }
+                    },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0a0a0a; color: #f3f3f3; }
+        .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #d4af37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass-card { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); }
+        .btn-luxury { background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a0a0a; font-weight: 600; transition: all 0.3s ease; }
+        .btn-luxury:hover { background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-outline { border: 1px solid #d4af37; color: #d4af37; transition: all 0.3s ease; }
+        .btn-outline:hover { background: #d4af37; color: #0a0a0a; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        th { color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        td { color: #d1d5db; }
+        .formula-box { background: rgba(212, 175, 55, 0.05); border-left: 3px solid #d4af37; padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #f3e5ab; margin: 16px 0; border-radius: 4px; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-luxury-black/90 backdrop-blur-md border-b border-luxury-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="font-serif text-xl font-bold gold-gradient-text">Matematika XI</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Beranda</a>
+                    <a href="index.html#daftar-isi" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Daftar Bab</a>
+                    <a href="index.html#tentang" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Penulis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Bab -->
+        <div class="text-center mb-12">
+            <span class="text-luxury-gold text-sm font-semibold tracking-[0.2em] uppercase">Pertemuan 4</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4 gold-gradient-text">BAB 4: Program Linear</h1>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                Memahami konsep program linear sebagai metode optimasi untuk memaksimalkan atau meminimalkan suatu fungsi tujuan dengan kendala-kendala tertentu. Menguasai model matematika, sistem pertidaksamaan linear, daerah penyelesaian, dan penentuan nilai optimum.
+            </p>
+        </div>
+
+        <!-- Navigasi Cepat -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Beranda</a>
+            <a href="uji-formatif-4.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">📝 Uji Formatif Bab 4</a>
+            <a href="5.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+        <!-- Konten A -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">A. Pengertian dan Hakikat Program Linear</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">
+                Program linear adalah metode matematis yang digunakan untuk menentukan nilai optimum (maksimum atau minimum) dari suatu fungsi linear (fungsi objektif) dengan memperhatikan berbagai kendala (constraints) yang dinyatakan dalam bentuk pertidaksamaan linear.
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-4">Program linear banyak diterapkan dalam berbagai bidang seperti ekonomi, industri, transportasi, dan manajemen untuk pengambilan keputusan yang optimal.</p>
+            
+            <div class="glass-card p-6 rounded-lg border-l-4 border-luxury-gold mt-6">
+                <p class="text-gray-300 italic">"Program linear adalah teknik optimasi yang digunakan untuk mengalokasikan sumber daya yang terbatas secara optimal untuk mencapai tujuan tertentu." <br><span class="text-sm text-luxury-gold not-italic font-semibold">— Definisi Matematis</span></p>
+            </div>
+
+            <p class="text-gray-300 leading-relaxed mt-4">Komponen utama program linear:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4 mt-3">
+                <li><strong class="text-gray-200">Variabel Keputusan:</strong> Variabel yang nilainya ingin ditentukan (biasanya x dan y)</li>
+                <li><strong class="text-gray-200">Fungsi Objektif:</strong> Fungsi yang ingin dioptimalkan (maksimum atau minimum)</li>
+                <li><strong class="text-gray-200">Fungsi Kendala:</strong> Pertidaksamaan linear yang membatasi nilai variabel keputusan</li>
+                <li><strong class="text-gray-200">Syarat Non-Negatif:</strong> Variabel keputusan harus bernilai non-negatif (x ≥ 0, y ≥ 0)</li>
+            </ul>
+        </section>
+
+        <!-- Konten B -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">B. Model Matematika Program Linear</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Model matematika program linear terdiri dari fungsi objektif dan fungsi kendala:</p>
+            
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30 mb-6">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Bentuk Umum Model Matematika:</h3>
+                <div class="formula-box">
+                    <strong>Fungsi Objektif:</strong><br>
+                    f(x, y) = ax + by (maksimum atau minimum)<br><br>
+                    <strong>Fungsi Kendala:</strong><br>
+                    a₁x + b₁y ≤ c₁<br>
+                    a₂x + b₂y ≤ c₂<br>
+                    ...<br>
+                    aₙx + bₙy ≤ cₙ<br>
+                    x ≥ 0, y ≥ 0
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">📘 Contoh Soal: Model Matematika</h3>
+                <p class="text-gray-300 mb-3">Seorang produsen membuat dua jenis roti: Roti A dan Roti B. Setiap Roti A membutuhkan 200 gram tepung dan 100 gram gula. Setiap Roti B membutuhkan 100 gram tepung dan 150 gram gula. Tersedia 4 kg tepung dan 3 kg gula. Keuntungan Roti A Rp5.000 dan Roti B Rp4.000. Buatlah model matematikanya!</p>
+                
+                <div class="mt-4 bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                    <p class="text-luxury-gold font-semibold mb-2">Penyelesaian:</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Variabel Keputusan:</strong></p>
+                    <p class="text-gray-300 text-sm ml-4">x = banyak Roti A yang diproduksi</p>
+                    <p class="text-gray-300 text-sm ml-4">y = banyak Roti B yang diproduksi</p>
+                    
+                    <p class="text-gray-300 text-sm mt-3 mb-2"><strong>Fungsi Objektif (Keuntungan):</strong></p>
+                    <p class="text-gray-300 text-sm ml-4">f(x, y) = 5000x + 4000y (maksimum)</p>
+                    
+                    <p class="text-gray-300 text-sm mt-3 mb-2"><strong>Fungsi Kendala:</strong></p>
+                    <p class="text-gray-300 text-sm ml-4">Tepung: 200x + 100y ≤ 4000 → 2x + y ≤ 40</p>
+                    <p class="text-gray-300 text-sm ml-4">Gula: 100x + 150y ≤ 3000 → 2x + 3y ≤ 60</p>
+                    <p class="text-gray-300 text-sm ml-4">Non-negatif: x ≥ 0, y ≥ 0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten C -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">C. Sistem Pertidaksamaan Linear Dua Variabel</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Sistem pertidaksamaan linear dua variabel adalah kumpulan pertidaksamaan linear yang melibatkan dua variabel. Penyelesaiannya merupakan irisan dari semua daerah penyelesaian masing-masing pertidaksamaan.</p>
+            
+            <div class="glass-card p-6 rounded-lg space-y-3 mb-6">
+                <p class="text-gray-300"><strong class="text-luxury-gold">Langkah Menyelesaikan:</strong></p>
+                <p class="text-gray-300">1. Gambar garis lurus dari setiap pertidaksamaan (ubah ≤ atau ≥ menjadi =)</p>
+                <p class="text-gray-300">2. Tentukan daerah penyelesaian dengan uji titik</p>
+                <p class="text-gray-300">3. Arsir daerah yang memenuhi semua pertidaksamaan</p>
+                <p class="text-gray-300">4. Daerah arsiran yang beririsan adalah daerah penyelesaian sistem</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">📘 Contoh Soal: Sistem Pertidaksamaan</h3>
+                <p class="text-gray-300 mb-3">Tentukan daerah penyelesaian dari sistem pertidaksamaan:</p>
+                <p class="text-gray-300 mb-3 ml-4">x + y ≤ 6</p>
+                <p class="text-gray-300 mb-3 ml-4">2x + y ≤ 8</p>
+                <p class="text-gray-300 mb-3 ml-4">x ≥ 0, y ≥ 0</p>
+                
+                <div class="mt-4 bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                    <p class="text-luxury-gold font-semibold mb-2">Penyelesaian:</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Garis 1:</strong> x + y = 6 → titik (6, 0) dan (0, 6)</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Garis 2:</strong> 2x + y = 8 → titik (4, 0) dan (0, 8)</p>
+                    <p class="text-gray-300 text-sm mb-2"><strong>Titik Potong:</strong> x + y = 6 dan 2x + y = 8</p>
+                    <p class="text-gray-300 text-sm ml-4">→ x = 2, y = 4 → titik (2, 4)</p>
+                    <p class="text-gray-300 text-sm mt-2"><strong>Titik Pojok Daerah Penyelesaian:</strong></p>
+                    <p class="text-gray-300 text-sm ml-4">(0, 0), (4, 0), (2, 4), (0, 6)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten D -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">D. Daerah Penyelesaian (Feasible Region)</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Daerah penyelesaian atau <em>feasible region</em> adalah himpunan semua titik yang memenuhi semua fungsi kendala. Daerah ini berbentuk poligon (segi banyak) yang dibatasi oleh garis-garis kendala.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">Sifat Daerah Penyelesaian</h3>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Berbentuk poligon cembung</li>
+                        <li>• Memiliki titik-titik pojok (vertex)</li>
+                        <li>• Terbatas atau tak terbatas</li>
+                        <li>• Semua titik di dalamnya memenuhi kendala</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">Titik Pojok (Vertex)</h3>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Titik perpotongan dua garis kendala</li>
+                        <li>• Merupakan kandidat solusi optimum</li>
+                        <li>• Nilai optimum selalu terjadi di titik pojok</li>
+                        <li>• Dapat ditentukan dengan eliminasi/substitusi</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten E -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">E. Metode Penentuan Nilai Optimum</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Ada dua metode utama untuk menentukan nilai optimum fungsi objektif:</p>
+            
+            <div class="space-y-6">
+                <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3">1. Metode Uji Titik Pojok</h3>
+                    <p class="text-gray-300 mb-3">Substitusikan semua titik pojok daerah penyelesaian ke fungsi objektif, lalu bandingkan hasilnya.</p>
+                    <div class="bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                        <p class="text-luxury-gold font-semibold mb-2">Contoh:</p>
+                        <p class="text-gray-300 text-sm">Fungsi objektif: f(x, y) = 5000x + 4000y</p>
+                        <p class="text-gray-300 text-sm">Titik pojok: (0, 0), (4, 0), (2, 4), (0, 6)</p>
+                        <p class="text-gray-300 text-sm mt-2">f(0, 0) = 0</p>
+                        <p class="text-gray-300 text-sm">f(4, 0) = 20.000</p>
+                        <p class="text-gray-300 text-sm">f(2, 4) = 26.000 ← <strong>Maksimum</strong></p>
+                        <p class="text-gray-300 text-sm">f(0, 6) = 24.000</p>
+                        <p class="text-luxury-gold font-semibold mt-2">Jadi, nilai maksimum = 26.000 di titik (2, 4)</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3">2. Metode Garis Selidik</h3>
+                    <p class="text-gray-300 mb-3">Gambar garis selidik ax + by = k, lalu geser sejajar hingga menyentuh titik terjauh (maksimum) atau terdekat (minimum) dari daerah penyelesaian.</p>
+                    <div class="bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                        <p class="text-luxury-gold font-semibold mb-2">Langkah-langkah:</p>
+                        <p class="text-gray-300 text-sm">1. Buat garis selidik awal: ax + by = 0 (melalui origin)</p>
+                        <p class="text-gray-300 text-sm">2. Geser garis sejajar ke kanan/atas untuk maksimum</p>
+                        <p class="text-gray-300 text-sm">3. Geser garis sejajar ke kiri/bawah untuk minimum</p>
+                        <p class="text-gray-300 text-sm">4. Titik terakhir yang disentuh adalah solusi optimum</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten F -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">F. Studi Kasus: Penerapan dalam Kehidupan Nyata</h2>
+            
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30 mb-6">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus 1: Optimasi Keuntungan UMKM Kue</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Seorang pengusaha kue di koperasi madrasah membuat dua jenis kue: Kue Lapis dan Kue Brownies. Kue Lapis membutuhkan 200 gram tepung dan 100 gram cokelat, sedangkan Brownies membutuhkan 100 gram tepung dan 150 gram cokelat. Tersedia 4 kg tepung dan 3 kg cokelat. Keuntungan per Kue Lapis Rp10.000 dan Brownies Rp8.000. Berapa banyak masing-masing kue yang harus diproduksi agar keuntungan maksimum?
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    <strong>Model Matematika:</strong><br>
+                    Fungsi objektif: f(x, y) = 10.000x + 8.000y (maksimum)<br>
+                    Kendala tepung: 2x + y ≤ 40<br>
+                    Kendala cokelat: 2x + 3y ≤ 60<br>
+                    x ≥ 0, y ≥ 0
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    <strong>Solusi:</strong> Titik pojok (0, 20), (15, 10), (20, 0)<br>
+                    f(15, 10) = 10.000(15) + 8.000(10) = <strong>Rp230.000</strong> (maksimum)<br>
+                    Jadi, produksi 15 Kue Lapis dan 10 Brownies.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus 2: Minimasi Biaya Transportasi</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Sebuah madrasah perlu mengangkut 60 murid dengan dua jenis kendaraan: Angkot (kapasitas 10 orang, biaya Rp50.000) dan Minibus (kapasitas 20 orang, biaya Rp100.000). Berapa banyak masing-masing kendaraan yang harus disewa agar biaya minimum?
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    <strong>Model:</strong> f(x, y) = 50.000x + 100.000y (minimum)<br>
+                    Kendala: 10x + 20y ≥ 60 → x + 2y ≥ 6<br>
+                    x ≥ 0, y ≥ 0<br>
+                    <strong>Solusi:</strong> Minimum di titik (0, 3) → 3 Minibus = <strong>Rp300.000</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Konten G -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">G. Tantangan dan Miskonsepsi Umum</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Dalam mempelajari program linear, murid sering mengalami:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Kesalahan Membuat Model:</strong> Salah menentukan variabel keputusan atau fungsi objektif dari soal cerita.</li>
+                <li><strong>Kesalahan Menggambar Grafik:</strong> Salah menentukan daerah penyelesaian pertidaksamaan (arsiran).</li>
+                <li><strong>Lupa Syarat Non-Negatif:</strong> Mengabaikan kendala x ≥ 0 dan y ≥ 0.</li>
+                <li><strong>Kesalahan Menentukan Titik Pojok:</strong> Salah menghitung titik perpotongan dua garis.</li>
+                <li><strong>Kebingungan Maksimum vs Minimum:</strong> Tidak jelas apakah soal meminta nilai maksimum atau minimum.</li>
+                <li><strong>Kesalahan Interpretasi:</strong> Salah menyimpulkan jawaban akhir dari nilai optimum yang diperoleh.</li>
+            </ul>
+        </section>
+
+        <!-- Konten H -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">H. Relevansi dalam Konteks MAS Diniyah Limo Jurai</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Konsep program linear memiliki makna praktis dalam pendidikan Islam:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Prinsip Efisiensi (Ihsan):</strong> Program linear mengajarkan prinsip melakukan sesuatu dengan cara terbaik dan paling efisien, sejalan dengan konsep ihsan dalam Islam.</li>
+                <li><strong>Aplikasi Ekonomi Syariah:</strong> Digunakan dalam optimasi produksi UMKM madrasah, perhitungan zakat yang optimal, dan alokasi dana infaq/sedekah.</li>
+                <li><strong>Pengambilan Keputusan:</strong> Melatih murid untuk mengambil keputusan berdasarkan analisis matematis yang objektif, bukan sekadar intuisi.</li>
+                <li><strong>Keseimbangan (Tawazun):</strong> Konsep optimasi dengan kendala mencerminkan prinsip keseimbangan dalam mengelola sumber daya yang terbatas.</li>
+            </ul>
+        </section>
+
+        <!-- Tabel Perbandingan -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">I. Perbedaan: Maksimasi vs Minimasi</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-luxury-gold/40">
+                            <th class="py-3">Aspek</th>
+                            <th class="py-3">Maksimasi (Mencari Nilai Maksimum)</th>
+                            <th class="py-3">Minimasi (Mencari Nilai Minimum)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Tujuan</td>
+                            <td class="py-3">Mencari nilai terbesar (keuntungan, produksi)</td>
+                            <td class="py-3 text-luxury-gold">Mencari nilai terkecil (biaya, waktu)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Jenis Kendala</td>
+                            <td class="py-3">Umumnya ≤ (kurang dari atau sama dengan)</td>
+                            <td class="py-3 text-luxury-gold">Umumnya ≥ (lebih dari atau sama dengan)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Metode Garis Selidik</td>
+                            <td class="py-3">Geser garis ke kanan/atas</td>
+                            <td class="py-3 text-luxury-gold">Geser garis ke kiri/bawah</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Contoh Aplikasi</td>
+                            <td class="py-3">Maksimalkan keuntungan, produksi, pendapatan</td>
+                            <td class="py-3 text-luxury-gold">Minimalkan biaya, waktu, jarak</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Daerah Penyelesaian</td>
+                            <td class="py-3">Terbatas di bawah</td>
+                            <td class="py-3 text-luxury-gold">Terbatas di atas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Poin Penting -->
+        <section class="mb-16 glass-card p-8 rounded-xl border-l-4 border-luxury-gold">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4">💡 Poin Penting untuk Ujian</h2>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami komponen program linear: variabel keputusan, fungsi objektif, fungsi kendala.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Kuasai cara membuat model matematika dari soal cerita.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Mampu menggambar grafik sistem pertidaksamaan linear dua variabel.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Hafalkan langkah menentukan titik pojok daerah penyelesaian.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Kuasai dua metode penentuan nilai optimum: uji titik pojok dan garis selidik.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Latihan menyelesaikan soal cerita optimasi (maksimasi dan minimasi).</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Jangan lupa syarat non-negatif: x ≥ 0, y ≥ 0.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Teliti dalam interpretasi jawaban akhir dari nilai optimum.</li>
+            </ul>
+        </section>
+
+        <!-- Navigasi Bawah -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Kembali ke Beranda</a>
+            <a href="uji-formatif-4.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">✍️ Uji Formatif Bab 4</a>
+            <a href="5.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-luxury-dark border-t border-luxury-gold/20 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-serif text-xl font-bold gold-gradient-text mb-3">Matematika XI</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Buku daras untuk murid dan pendidik. Teori, praktik, dan aplikasi matematika dalam konteks pendidikan Islam di MAS Diniyah Limo Jurai.</p>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-luxury-gold transition-colors">Beranda</a></li>
+                        <li><a href="index.html#daftar-isi" class="hover:text-luxury-gold transition-colors">Daftar Bab</a></li>
+                        <li><a href="index.html#tentang" class="hover:text-luxury-gold transition-colors">Penulis</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Kontak & Bantuan</h4>
+                    <p class="text-gray-400 text-sm mb-2">Murid dapat menyertakan <strong class="text-gray-200">NIS</strong> saat mengajukan pertanyaan terkait materi.</p>
+                    <a href="mailto:elvialfatunnisa@gmail.com" class="text-luxury-gold hover:text-luxury-goldLight text-sm transition-colors block mb-1">elvialfatunnisa@gmail.com</a>
+                    <span class="text-gray-500 text-sm block">MAS Diniyah Limo Jurai</span>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs">&copy; 2026 Elvi Syuhk Rina Fitri. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

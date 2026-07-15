@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 2 - Fungsi Komposisi | Matematika XI</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: { black: '#0a0a0a', dark: '#121212', gold: '#d4af37', goldLight: '#f3e5ab', gray: '#1e1e1e' }
+                    },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0a0a0a; color: #f3f3f3; }
+        .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #d4af37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass-card { background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.15); }
+        .btn-luxury { background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a0a0a; font-weight: 600; transition: all 0.3s ease; }
+        .btn-luxury:hover { background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .btn-outline { border: 1px solid #d4af37; color: #d4af37; transition: all 0.3s ease; }
+        .btn-outline:hover { background: #d4af37; color: #0a0a0a; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        th { color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        td { color: #d1d5db; }
+        .formula-box { background: rgba(212, 175, 55, 0.05); border-left: 3px solid #d4af37; padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #f3e5ab; margin: 16px 0; border-radius: 4px; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-luxury-black/90 backdrop-blur-md border-b border-luxury-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="font-serif text-xl font-bold gold-gradient-text">Matematika XI</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Beranda</a>
+                    <a href="index.html#daftar-isi" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Daftar Bab</a>
+                    <a href="index.html#tentang" class="text-gray-300 hover:text-luxury-gold transition-colors text-sm uppercase tracking-widest">Penulis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Bab -->
+        <div class="text-center mb-12">
+            <span class="text-luxury-gold text-sm font-semibold tracking-[0.2em] uppercase">Pertemuan 2</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold mt-3 mb-4 gold-gradient-text">BAB 2: Fungsi Komposisi</h1>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                Memahami konsep fungsi komposisi sebagai gabungan dua fungsi atau lebih yang bekerja secara berurutan. Menguasai notasi (f ∘ g)(x), sifat-sifat komposisi, serta aplikasinya dalam pemecahan masalah bertahap.
+            </p>
+        </div>
+
+        <!-- Navigasi Cepat -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Beranda</a>
+            <a href="uji-formatif-2.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">📝 Uji Formatif Bab 2</a>
+            <a href="3.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+        <!-- Konten A -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">A. Pengertian dan Hakikat Fungsi Komposisi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">
+                Fungsi komposisi adalah penggabungan dua buah fungsi atau lebih secara berurutan, di mana output dari fungsi pertama menjadi input bagi fungsi berikutnya. Konsep ini mirip dengan proses manufaktur bertahap: bahan mentah diproses menjadi barang setengah jadi, lalu diproses lagi menjadi barang jadi.
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-4">Secara formal, jika terdapat dua fungsi <em>f</em> dan <em>g</em>, maka fungsi komposisi <em>(f ∘ g)</em> didefinisikan sebagai fungsi yang memetakan <em>x</em> melalui <em>g</em> terlebih dahulu, kemudian hasilnya diproses oleh <em>f</em>.</p>
+            
+            <div class="formula-box">
+                (f ∘ g)(x) = f(g(x))<br>
+                <span class="text-sm text-gray-400 not-italic">Dibaca: "f komposisi g dari x" atau "f bundaran g dari x"</span>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border-l-4 border-luxury-gold mt-6">
+                <p class="text-gray-300 italic">"Fungsi komposisi adalah operasi penggabungan dua fungsi sehingga membentuk fungsi baru, di mana output fungsi pertama menjadi input fungsi kedua." <br><span class="text-sm text-luxury-gold not-italic font-semibold">— Definisi Matematis</span></p>
+            </div>
+        </section>
+
+        <!-- Konten B -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">B. Notasi dan Alur Komposisi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Untuk memahami fungsi komposisi, murid perlu memahami alur pemetaannya secara bertahap:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">1. (f ∘ g)(x)</h3>
+                    <p class="text-sm text-gray-400 mb-2">Fungsi <strong>g</strong> dikerjakan lebih dulu, hasilnya dimasukkan ke fungsi <strong>f</strong>.</p>
+                    <div class="formula-box text-sm">(f ∘ g)(x) = f(g(x))</div>
+                </div>
+                <div class="glass-card p-5 rounded-lg">
+                    <h3 class="text-luxury-gold font-bold mb-2">2. (g ∘ f)(x)</h3>
+                    <p class="text-sm text-gray-400 mb-2">Fungsi <strong>f</strong> dikerjakan lebih dulu, hasilnya dimasukkan ke fungsi <strong>g</strong>.</p>
+                    <div class="formula-box text-sm">(g ∘ f)(x) = g(f(x))</div>
+                </div>
+            </div>
+
+            <p class="text-gray-300 leading-relaxed">Analogi sederhana: Bayangkan mesin konversi mata uang. Mesin pertama (g) mengubah Rupiah → Dollar, lalu mesin kedua (f) mengubah Dollar → Euro. Proses keseluruhan adalah <em>(f ∘ g)</em>: Rupiah → Euro.</p>
+        </section>
+
+        <!-- Konten C -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">C. Sifat-Sifat Fungsi Komposisi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Fungsi komposisi memiliki beberapa sifat penting yang harus dikuasai:</p>
+            
+            <div class="space-y-4">
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">1. Tidak Komutatif</h3>
+                    <p class="text-sm text-gray-400 mb-2">Secara umum, (f ∘ g)(x) ≠ (g ∘ f)(x). Urutan komposisi sangat menentukan hasil.</p>
+                    <div class="formula-box text-sm">(f ∘ g)(x) ≠ (g ∘ f)(x)</div>
+                </div>
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">2. Asosiatif</h3>
+                    <p class="text-sm text-gray-400 mb-2">Pengelompokan fungsi tidak mengubah hasil akhir komposisi.</p>
+                    <div class="formula-box text-sm">((f ∘ g) ∘ h)(x) = (f ∘ (g ∘ h))(x)</div>
+                </div>
+                <div class="glass-card p-5 rounded-lg border-l-4 border-luxury-gold">
+                    <h3 class="text-luxury-gold font-bold mb-2">3. Memiliki Fungsi Identitas (I)</h3>
+                    <p class="text-sm text-gray-400 mb-2">Terdapat fungsi identitas I(x) = x yang bersifat netral terhadap komposisi.</p>
+                    <div class="formula-box text-sm">(f ∘ I)(x) = (I ∘ f)(x) = f(x)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konten D -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">D. Langkah Menentukan Fungsi Komposisi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Berikut langkah-langkah sistematis untuk menentukan fungsi komposisi:</p>
+            
+            <div class="glass-card p-6 rounded-lg">
+                <h3 class="text-xl font-semibold text-gray-100 mb-4">📘 Contoh Soal:</h3>
+                <p class="text-gray-300 mb-3">Diketahui f(x) = 2x + 3 dan g(x) = x². Tentukan (f ∘ g)(x) dan (g ∘ f)(x)!</p>
+                
+                <div class="mt-4 space-y-4">
+                    <div class="bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                        <p class="text-luxury-gold font-semibold mb-2">Penyelesaian (f ∘ g)(x):</p>
+                        <p class="text-gray-300 text-sm">(f ∘ g)(x) = f(g(x))</p>
+                        <p class="text-gray-300 text-sm">= f(x²)</p>
+                        <p class="text-gray-300 text-sm">= 2(x²) + 3</p>
+                        <p class="text-luxury-gold font-semibold mt-2">= 2x² + 3 ✓</p>
+                    </div>
+                    <div class="bg-luxury-black/40 p-4 rounded border border-luxury-gold/20">
+                        <p class="text-luxury-gold font-semibold mb-2">Penyelesaian (g ∘ f)(x):</p>
+                        <p class="text-gray-300 text-sm">(g ∘ f)(x) = g(f(x))</p>
+                        <p class="text-gray-300 text-sm">= g(2x + 3)</p>
+                        <p class="text-gray-300 text-sm">= (2x + 3)²</p>
+                        <p class="text-luxury-gold font-semibold mt-2">= 4x² + 12x + 9 ✓</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm italic mt-4">⚠️ Perhatikan: (f ∘ g)(x) ≠ (g ∘ f)(x), membuktikan fungsi komposisi <strong>tidak komutatif</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Konten E -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">E. Domain Fungsi Komposisi</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Domain fungsi komposisi (f ∘ g) adalah himpunan nilai x yang memenuhi dua syarat:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4 mb-4">
+                <li>x harus berada dalam domain fungsi g</li>
+                <li>g(x) harus berada dalam domain fungsi f</li>
+            </ul>
+            <div class="formula-box">
+                D<sub>(f ∘ g)</sub> = { x ∈ D<sub>g</sub> | g(x) ∈ D<sub>f</sub> }
+            </div>
+            <p class="text-gray-300 leading-relaxed mt-4">Artinya, domain fungsi komposisi merupakan <strong>irisan</strong> dari domain kedua fungsi dengan memperhatikan syarat tambahan.</p>
+        </section>
+
+        <!-- Konten F -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">F. Studi Kasus: Penerapan dalam Kehidupan Nyata</h2>
+            
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30 mb-6">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus 1: Proses Produksi Kue di Koperasi MAS Diniyah</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Koperasi madrasah memproduksi kue dengan dua tahap. Tahap I (fungsi g) mengolah bahan mentah menjadi adonan dengan rumus biaya: <strong>g(x) = 5.000x + 20.000</strong> (x = jumlah bahan dalam kg). Tahap II (fungsi f) mengolah adonan menjadi kue jadi dengan rumus: <strong>f(x) = 3x + 10.000</strong>.
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    <strong>Proses komposisi (f ∘ g)(x):</strong><br>
+                    = f(g(x)) = f(5.000x + 20.000)<br>
+                    = 3(5.000x + 20.000) + 10.000<br>
+                    = 15.000x + 60.000 + 10.000<br>
+                    = <strong>15.000x + 70.000</strong>
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Jika x = 10 kg bahan, total biaya produksi = 15.000(10) + 70.000 = <strong>Rp220.000</strong>.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-lg border border-luxury-gold/30">
+                <h3 class="text-xl font-semibold text-gray-100 mb-3">Kasus 2: Konversi Suhu Bertahap</h3>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    Seorang ilmuwan perlu mengonversi suhu dari Reamur ke Fahrenheit melalui dua tahap: Reamur → Celcius → Fahrenheit.
+                </p>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    <strong>Tahap 1 (g):</strong> R → C, rumus g(R) = 5/4 × R<br>
+                    <strong>Tahap 2 (f):</strong> C → F, rumus f(C) = 9/5 × C + 32<br>
+                    <strong>Komposisi (f ∘ g)(R):</strong><br>
+                    = f(5/4 × R) = 9/5 × (5/4 × R) + 32 = <strong>9/4 × R + 32</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Konten G -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">G. Tantangan dan Miskonsepsi Umum</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Dalam mempelajari fungsi komposisi, murid sering mengalami:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Kebingungan Urutan:</strong> Mengira (f ∘ g)(x) sama dengan (g ∘ f)(x), padahal tidak komutatif.</li>
+                <li><strong>Kesalahan Substitusi:</strong> Salah memasukkan fungsi ke dalam fungsi lain, terutama pada fungsi kuadrat.</li>
+                <li><strong>Mengabaikan Domain:</strong> Tidak memeriksa syarat domain fungsi komposisi (misal: penyebut ≠ 0, akar ≥ 0).</li>
+                <li><strong>Kesulitan Membaca Notasi:</strong> Bingung membedakan notasi (f ∘ g)(x) dengan (f × g)(x) atau (f + g)(x).</li>
+            </ul>
+        </section>
+
+        <!-- Konten H -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">H. Relevansi dalam Konteks MAS Diniyah Limo Jurai</h2>
+            <p class="text-gray-300 leading-relaxed mb-4">Konsep fungsi komposisi memiliki makna filosofis dalam pendidikan Islam:</p>
+            <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                <li><strong>Proses Berjenjang (Taraqqi):</strong> Seperti proses belajar yang bertahap dari dasar ke lanjut (ibtidaiyah → tsanawiyah → aliyyah), fungsi komposisi mencerminkan prinsip kemajuan berkesinambungan.</li>
+                <li><strong>Urutan yang Terjaga (Tertib):</strong> Ketidakkomutatifan fungsi komposisi mengajarkan pentingnya menjaga urutan amal dan ibadah sesuai syariat.</li>
+                <li><strong>Aplikasi Hisab:</strong> Digunakan dalam perhitungan zakat bertingkat, konversi satuan dalam fikih muamalah, dan penentuan waktu shalat berdasarkan koordinat geografis.</li>
+            </ul>
+        </section>
+
+        <!-- Tabel Perbandingan -->
+        <section class="mb-12">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4 border-b border-luxury-gold/20 pb-2">I. Perbedaan: Operasi Fungsi Biasa vs Fungsi Komposisi</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-luxury-gold/40">
+                            <th class="py-3">Aspek</th>
+                            <th class="py-3">Operasi Aljabar Fungsi (f + g, f × g)</th>
+                            <th class="py-3">Fungsi Komposisi (f ∘ g)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Cara Kerja</td>
+                            <td class="py-3">Kedua fungsi diproses secara paralel pada input yang sama</td>
+                            <td class="py-3 text-luxury-gold">Fungsi diproses secara berurutan (serial)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Notasi</td>
+                            <td class="py-3">(f + g)(x), (f × g)(x)</td>
+                            <td class="py-3 text-luxury-gold">(f ∘ g)(x) = f(g(x))</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Sifat Komutatif</td>
+                            <td class="py-3">Komutatif untuk penjumlahan & perkalian</td>
+                            <td class="py-3 text-luxury-gold">Tidak komutatif</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Domain</td>
+                            <td class="py-3">Irisan domain kedua fungsi</td>
+                            <td class="py-3 text-luxury-gold">Domain g dengan syarat g(x) ∈ D<sub>f</sub></td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 font-medium text-gray-200">Analogi</td>
+                            <td class="py-3">Dua mesin bekerja bersamaan</td>
+                            <td class="py-3 text-luxury-gold">Dua mesin bekerja berurutan (assembly line)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Poin Penting -->
+        <section class="mb-16 glass-card p-8 rounded-xl border-l-4 border-luxury-gold">
+            <h2 class="font-serif text-2xl text-luxury-gold mb-4">💡 Poin Penting untuk Ujian</h2>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami definisi fungsi komposisi: (f ∘ g)(x) = f(g(x)).</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Kuasai tiga sifat utama: tidak komutatif, asosiatif, dan identitas.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Latihan menentukan (f ∘ g)(x) dan (g ∘ f)(x) dari fungsi yang diberikan.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Pahami cara menentukan domain fungsi komposisi dengan syarat irisan.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Mampu menyelesaikan soal cerita dengan menerjemahkan proses bertahap ke dalam notasi komposisi.</li>
+                <li class="flex gap-3"><span class="text-luxury-gold mt-1">✓</span> Bedakan dengan jelas antara operasi aljabar fungsi dan fungsi komposisi.</li>
+            </ul>
+        </section>
+
+        <!-- Navigasi Bawah -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="index.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">🏠 Kembali ke Beranda</a>
+            <a href="uji-formatif-2.html" class="btn-luxury px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">✍️ Uji Formatif Bab 2</a>
+            <a href="3.html" class="btn-outline px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2">Bab Selanjutnya →</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-luxury-dark border-t border-luxury-gold/20 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-serif text-xl font-bold gold-gradient-text mb-3">Matematika XI</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Buku daras untuk murid dan pendidik. Teori, praktik, dan aplikasi matematika dalam konteks pendidikan Islam di MAS Diniyah Limo Jurai.</p>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-luxury-gold transition-colors">Beranda</a></li>
+                        <li><a href="index.html#daftar-isi" class="hover:text-luxury-gold transition-colors">Daftar Bab</a></li>
+                        <li><a href="index.html#tentang" class="hover:text-luxury-gold transition-colors">Penulis</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-luxury-gold font-semibold mb-3 uppercase text-sm tracking-wider">Kontak & Bantuan</h4>
+                    <p class="text-gray-400 text-sm mb-2">Murid dapat menyertakan <strong class="text-gray-200">NIS</strong> saat mengajukan pertanyaan terkait materi.</p>
+                    <a href="mailto:elvialfatunnisa@gmail.com" class="text-luxury-gold hover:text-luxury-goldLight text-sm transition-colors block mb-1">elvialfatunnisa@gmail.com</a>
+                    <span class="text-gray-500 text-sm block">MAS Diniyah Limo Jurai</span>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-xs">&copy; 2026 Elvi Syuhk Rina Fitri. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
